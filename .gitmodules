@@ -1,0 +1,3 @@
+[submodule "examples/third_party/chitra"]
+	path = examples/third_party/chitra
+	url = https://github.com/Yuvi-GD/Chitra.git

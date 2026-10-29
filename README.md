@@ -29,13 +29,14 @@ The core provides calculation facilities shared by built-in and custom container
 Requires CMake 3.20 or newer and a C11 compiler.
 
 ```sh
+git submodule update --init --recursive -- examples/third_party/chitra
 cmake -S . -B build -DVINYASA_BUILD_SANDBOX=ON
 cmake --build build --config Debug
 ```
 
-The sandbox executable is built under `build/examples/sandbox`, with a configuration subdirectory when using a multi-configuration generator such as Visual Studio.
+The sandbox executable is built under `build/examples/sandbox`, with a configuration subdirectory when using a multi-configuration generator such as Visual Studio. It uses the Chitra submodule in `examples/third_party` for its window, drawing, and text. The current scene checks rectangle and text rendering; it does not execute Vinyasa layout yet.
 
-For an existing CMake project, use `add_subdirectory` and link to `vinyasa::vinyasa`. Sandbox and test builds are disabled by default. `VINYASA_BUILD_TESTS` enables the test directory.
+For an existing CMake project, use `add_subdirectory` and link to `vinyasa::vinyasa`. Sandbox and test builds are disabled by default. Chitra is not required when the sandbox is disabled. `VINYASA_BUILD_TESTS` enables the test directory.
 
 ## License
 
