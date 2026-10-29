@@ -24,6 +24,19 @@ The application owns the hierarchy and chooses which root to calculate and when.
 
 The core provides calculation facilities shared by built-in and custom containers. Container-specific behavior belongs in the container, so adding a layout rule does not require adding knowledge of that rule to the core.
 
+## Build
+
+Requires CMake 3.20 or newer and a C11 compiler.
+
+```sh
+cmake -S . -B build -DVINYASA_BUILD_SANDBOX=ON
+cmake --build build --config Debug
+```
+
+The sandbox executable is built under `build/examples/sandbox`, with a configuration subdirectory when using a multi-configuration generator such as Visual Studio.
+
+For an existing CMake project, use `add_subdirectory` and link to `vinyasa::vinyasa`. Sandbox and test builds are disabled by default. `VINYASA_BUILD_TESTS` enables the test directory.
+
 ## License
 
 [Apache License 2.0](LICENSE).
